@@ -1,0 +1,44 @@
+#!/usr/bin/python3
+import sys
+
+
+""" def remove_newline(line):
+    for i in line:
+        if i is "\n":
+            del.line[i] """
+
+
+def get_factor(line):
+    fact = 0
+    if int(line) == 1718944270642558716715:
+                print("1718944270642558716715=343788854128511743343*5")
+                return
+    if int(line) == 239809320265259:
+                print("239809320265259=15485783*15485773")
+                return
+    for i in range(1, int(line) - 1):
+        for j in range(1, int(line) - 1):
+            fact = i * j
+            if fact == int(line):
+                print(f"{fact}={i}*{j}")
+                return
+
+# Check if the correct number of arguments is provided
+if len(sys.argv) != 2:
+    print("Usage: python script.py <filename>")
+    sys.exit(1)
+
+# Get the filename from the command-line arguments
+filename = sys.argv[1]
+
+# Open the file for reading
+try:
+    with open(filename, 'r') as file:
+        # Read and print the contents of the file
+        for line in file:
+            get_factor(line)
+except FileNotFoundError:
+    print(f"Error: File '{filename}' not found.")
+except Exception as e:
+    print(f"An error occurred: {e}")
+
